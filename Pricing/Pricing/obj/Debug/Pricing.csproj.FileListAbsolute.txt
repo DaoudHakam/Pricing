@@ -1,0 +1,10 @@
+C:\Users\lenovo\source\repos\Pricing\Pricing\bin\Debug\Pricing.exe.config
+C:\Users\lenovo\source\repos\Pricing\Pricing\bin\Debug\Pricing.exe
+C:\Users\lenovo\source\repos\Pricing\Pricing\bin\Debug\Pricing.pdb
+C:\Users\lenovo\source\repos\Pricing\Pricing\obj\Debug\Pricing.csproj.AssemblyReference.cache
+C:\Users\lenovo\source\repos\Pricing\Pricing\obj\Debug\Pricing.Form1.resources
+C:\Users\lenovo\source\repos\Pricing\Pricing\obj\Debug\Pricing.Properties.Resources.resources
+C:\Users\lenovo\source\repos\Pricing\Pricing\obj\Debug\Pricing.csproj.GenerateResource.cache
+C:\Users\lenovo\source\repos\Pricing\Pricing\obj\Debug\Pricing.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\source\repos\Pricing\Pricing\obj\Debug\Pricing.exe
+C:\Users\lenovo\source\repos\Pricing\Pricing\obj\Debug\Pricing.pdb
