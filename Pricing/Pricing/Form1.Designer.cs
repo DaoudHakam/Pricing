@@ -67,6 +67,11 @@ namespace Pricing
             this.label21 = new System.Windows.Forms.Label();
             this.tb_rho_put = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btn_M = new System.Windows.Forms.Button();
+            this.tb_monte_call = new System.Windows.Forms.TextBox();
+            this.tbn_monte_put = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tb_paths = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -116,7 +121,7 @@ namespace Pricing
             // 
             // btn_b
             // 
-            this.btn_b.Location = new System.Drawing.Point(524, 255);
+            this.btn_b.Location = new System.Drawing.Point(461, 265);
             this.btn_b.Name = "btn_b";
             this.btn_b.Size = new System.Drawing.Size(120, 42);
             this.btn_b.TabIndex = 8;
@@ -126,7 +131,7 @@ namespace Pricing
             // 
             // btn_binomial
             // 
-            this.btn_binomial.Location = new System.Drawing.Point(845, 255);
+            this.btn_binomial.Location = new System.Drawing.Point(782, 265);
             this.btn_binomial.Name = "btn_binomial";
             this.btn_binomial.Size = new System.Drawing.Size(120, 42);
             this.btn_binomial.TabIndex = 10;
@@ -181,7 +186,7 @@ namespace Pricing
             // 
             // tb_steps
             // 
-            this.tb_steps.Location = new System.Drawing.Point(991, 275);
+            this.tb_steps.Location = new System.Drawing.Point(928, 285);
             this.tb_steps.Name = "tb_steps";
             this.tb_steps.Size = new System.Drawing.Size(74, 22);
             this.tb_steps.TabIndex = 18;
@@ -189,7 +194,7 @@ namespace Pricing
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1005, 255);
+            this.label9.Location = new System.Drawing.Point(942, 265);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 17);
             this.label9.TabIndex = 20;
@@ -197,21 +202,21 @@ namespace Pricing
             // 
             // tb_black
             // 
-            this.tb_black.Location = new System.Drawing.Point(524, 335);
+            this.tb_black.Location = new System.Drawing.Point(461, 345);
             this.tb_black.Name = "tb_black";
             this.tb_black.Size = new System.Drawing.Size(147, 22);
             this.tb_black.TabIndex = 22;
             // 
             // tb_Put_black
             // 
-            this.tb_Put_black.Location = new System.Drawing.Point(524, 389);
+            this.tb_Put_black.Location = new System.Drawing.Point(461, 399);
             this.tb_Put_black.Name = "tb_Put_black";
             this.tb_Put_black.Size = new System.Drawing.Size(147, 22);
             this.tb_Put_black.TabIndex = 23;
             // 
             // tb_call_Binomial
             // 
-            this.tb_call_Binomial.Location = new System.Drawing.Point(835, 330);
+            this.tb_call_Binomial.Location = new System.Drawing.Point(772, 340);
             this.tb_call_Binomial.Name = "tb_call_Binomial";
             this.tb_call_Binomial.Size = new System.Drawing.Size(147, 22);
             this.tb_call_Binomial.TabIndex = 24;
@@ -233,7 +238,7 @@ namespace Pricing
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(428, 335);
+            this.label10.Location = new System.Drawing.Point(365, 345);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 17);
             this.label10.TabIndex = 27;
@@ -251,7 +256,7 @@ namespace Pricing
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(428, 389);
+            this.label12.Location = new System.Drawing.Point(365, 399);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(29, 17);
             this.label12.TabIndex = 29;
@@ -268,7 +273,7 @@ namespace Pricing
             // 
             // tb_put_binomial
             // 
-            this.tb_put_binomial.Location = new System.Drawing.Point(835, 389);
+            this.tb_put_binomial.Location = new System.Drawing.Point(772, 399);
             this.tb_put_binomial.Name = "tb_put_binomial";
             this.tb_put_binomial.Size = new System.Drawing.Size(147, 22);
             this.tb_put_binomial.TabIndex = 32;
@@ -378,11 +383,56 @@ namespace Pricing
             this.label7.TabIndex = 49;
             this.label7.Text = "Option Greeks";
             // 
+            // btn_M
+            // 
+            this.btn_M.Location = new System.Drawing.Point(1076, 265);
+            this.btn_M.Name = "btn_M";
+            this.btn_M.Size = new System.Drawing.Size(120, 42);
+            this.btn_M.TabIndex = 50;
+            this.btn_M.Text = "MonteCarlo ";
+            this.btn_M.UseVisualStyleBackColor = true;
+            this.btn_M.Click += new System.EventHandler(this.btn_M_Click_1);
+            // 
+            // tb_monte_call
+            // 
+            this.tb_monte_call.Location = new System.Drawing.Point(1061, 340);
+            this.tb_monte_call.Name = "tb_monte_call";
+            this.tb_monte_call.Size = new System.Drawing.Size(147, 22);
+            this.tb_monte_call.TabIndex = 51;
+            // 
+            // tbn_monte_put
+            // 
+            this.tbn_monte_put.Location = new System.Drawing.Point(1061, 399);
+            this.tbn_monte_put.Name = "tbn_monte_put";
+            this.tbn_monte_put.Size = new System.Drawing.Size(147, 22);
+            this.tbn_monte_put.TabIndex = 52;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1252, 265);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 17);
+            this.label8.TabIndex = 54;
+            this.label8.Text = "Paths";
+            // 
+            // tb_paths
+            // 
+            this.tb_paths.Location = new System.Drawing.Point(1238, 285);
+            this.tb_paths.Name = "tb_paths";
+            this.tb_paths.Size = new System.Drawing.Size(74, 22);
+            this.tb_paths.TabIndex = 53;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 512);
+            this.ClientSize = new System.Drawing.Size(1367, 538);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.tb_paths);
+            this.Controls.Add(this.tbn_monte_put);
+            this.Controls.Add(this.tb_monte_call);
+            this.Controls.Add(this.btn_M);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.tb_rho_put);
@@ -468,6 +518,11 @@ namespace Pricing
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox tb_rho_put;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btn_M;
+        private System.Windows.Forms.TextBox tb_monte_call;
+        private System.Windows.Forms.TextBox tbn_monte_put;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tb_paths;
     }
 }
 

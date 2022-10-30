@@ -21,52 +21,7 @@ namespace Pricing
         }
 
 
-        private void btn_M_Click(object sender, EventArgs e)
-        {
-            double S; double K; double r; double sigma; double T; int N;
-            S = double.Parse(tb_S.Text);
-            K = double.Parse(tb_K.Text);
-            r = double.Parse(tb_r.Text);
-            sigma = double.Parse(tb_Sigma.Text);
-            T = double.Parse(tb_T.Text);
-            //div = double.Parse(tb_q.Text);
-            //N = int.Parse(tb_paths.Text);
-
-            double PT = 0;
-            double CT = 0;
-            double St = 0;
-            ArrayList t = new ArrayList();
-            ArrayList tp = new ArrayList();
-            //double[] t = new double[1000];
-            Random z = new Random();
-            //for (int m = 1; m < N + 1; m++)
-            //{
-
-            //    //St = 0;
-            //    //CT = 0;
-            //    //PT = 0;
-            //    double o = z.Next(0, 1);
-            //    St = S * Math.Exp((r + 0.5 * Math.Pow(sigma, 2) + sigma * Math.Sqrt(T) * o));
-            //    CT = Math.Exp(-r * T) * (St - K);
-            //    PT = Math.Exp(-r * T) * (K - St );
-            //    t.Add(CT);
-            //    tp.Add(PT);
-            //}
-            double sum = 0;
-            foreach (double i in t)
-            {
-                sum = sum + i;
-            }
-            //double Cm = sum / N;
-            //tb_call_monte.Text = Cm.ToString();
-            double summ = 0;
-            foreach (double i in tp)
-            {
-                summ = summ + i;
-            }
-            //double Pm = summ / N;
-            //tb_put_montecarlo.Text = Pm.ToString();
-        }
+ 
 
         private void btn_b_Click(object sender, EventArgs e)
         {
@@ -498,6 +453,67 @@ namespace Pricing
 
         }
 
+        private void btn_M_Click_1(object sender, EventArgs e)
+        {
+            double Volatility = Convert.ToDouble(tb_Sigma.Text);
+            double Maturity = Convert.ToDouble(tb_T.Text);
+            double Spot = Convert.ToDouble(tb_S.Text);
+            double IR = Convert.ToDouble(tb_r.Text);
+            double NumberPaths = Convert.ToDouble(tb_paths.Text);
+            double Strike = Convert.ToDouble(tb_K.Text);
+
+            double Var = Volatility * Volatility * Maturity;
+            double SpotTick = Spot * Math.Exp(IR * Maturity - 0.5* Var);
+            double FinalSpot = 0;
+            double Payoff = 0;
+            double PayoffPut = 0;
+            double ResultsPut = 0;
+            double Results = 0;
+            double price = 0;
+            double pricePut = 0;
+            double NormalVariable = 0;
+            for (double i = 0; i < NumberPaths; i++)
+            {
+                NormalVariable = BoxMuller(); FinalSpot = SpotTick * Math.Exp(Math.Sqrt(Var) * NormalVariable);
+                if ((FinalSpot - Strike) < 0)
+                {
+                    Payoff = 0;
+                    PayoffPut = Strike - FinalSpot;
+                    ResultsPut = PayoffPut + ResultsPut;
+                }
+                else
+                {
+                    Payoff = FinalSpot - Strike;
+                    PayoffPut = 0;
+                }
+                Results = Payoff + Results;
+
+
+            }
+            price = Results / NumberPaths;
+            price = price * Math.Exp(-IR * Maturity);
+            tb_monte_call.Text = Convert.ToString(price);
+            pricePut = ResultsPut / NumberPaths;
+            pricePut = pricePut * Math.Exp(-IR * Maturity);
+            tbn_monte_put.Text = Convert.ToString(pricePut);
+
+            //Box - Muller function is simply written: 
+            double BoxMuller()
+            {
+                double result_value = 0;
+                double x1, x2, squared;
+                do
+                {
+                    Random rand = new Random();
+                    x1 = 2.0 * rand.NextDouble() - 1.0; x2 = 2.0 * rand.NextDouble() - 1.0; squared = x1 * x1 + x2 * x2;
+                } while (squared >= 1.0);
+                result_value = x1 * Math.Sqrt(-2 * Math.Log(squared) / squared);
+                return result_value;
+            }
+        }
+
+
+    }
     } 
-}
+
 
